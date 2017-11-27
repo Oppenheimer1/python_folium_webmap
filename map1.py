@@ -8,6 +8,7 @@ lat = list(data["LAT"])
 lon = list(data["LON"])
 elev = list(data["ELEV"])
 
+# If the volcanoe elevation is less then 1000 color the volcanoe green, between 1000 and 3000 color the volcanoe orange, otherwise color the volcanoe red
 def color_producer(elevation):
     if elevation < 1000:
         return 'green'
