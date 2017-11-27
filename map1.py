@@ -1,4 +1,6 @@
+# Folium is a python library that enables you to create different types of Leaflet maps
 import folium
+# Pandas is a Python package providing fast, flexible, and expressive data structures designed to make working with “relational” or “labeled” data both easy and intuitive. 
 import pandas
 
 data = pandas.read_csv("Volcanoes.txt")
@@ -23,6 +25,7 @@ for lt, ln, el in zip(lat, lon, elev):
 
 fgp = folium.FeatureGroup(name="Population")
 
+# If the population > 20Million color the country red, >= 10Million color the country orange, <10Million color the country green
 fgp.add_child(folium.GeoJson(data=open('world.json', 'r', encoding='utf-8-sig').read(),
 style_function=lambda x: {'fillColor':'green' if x['properties']['POP2005'] < 10000000
 else 'orange' if 10000000 <= x['properties']['POP2005'] < 20000000 else 'red'}))
